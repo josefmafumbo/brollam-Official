@@ -112,9 +112,10 @@
   }
 
   ::selection {
-    background: var(--gold);
-    color: var(--primary-foreground);
+    background: var(--lime);
+    color: var(--ink);
   }
+
 
   h1,
   h2,
