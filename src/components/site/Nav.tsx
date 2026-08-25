@@ -34,7 +34,7 @@ export function Nav() {
             ].join(" ")}
           >
             Brollam
-            <span className="text-gold">.</span>
+            <span className="text-teal">.</span>
           </a>
 
           <div className="hidden items-center gap-9 md:flex">

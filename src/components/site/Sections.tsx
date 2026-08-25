@@ -1,6 +1,6 @@
 import commitmentImage from "@/assets/commitment.jpg";
 import energyImage from "@/assets/energy.jpg";
-import textureGold from "@/assets/texture-gold.jpg";
+import textureGold from "@/assets/texture-teal.jpg";
 import {
   ecosystemChannels,
   insights,
@@ -28,7 +28,7 @@ function SectionHead({
   const strong = tone === "dark" ? "text-primary-foreground" : "text-foreground";
   return (
     <div className="max-w-3xl">
-      <p data-reveal className={`reveal eyebrow ${tone === "dark" ? "text-gold-bright" : "text-gold"}`}>
+      <p data-reveal className={`reveal eyebrow ${tone === "dark" ? "text-lime" : "text-teal"}`}>
         {eyebrow}
       </p>
       <h2
@@ -58,7 +58,7 @@ export function Marquee() {
             className="eyebrow flex shrink-0 items-center gap-10 px-10 text-muted-foreground"
           >
             {c}
-            <span className="h-1 w-1 rounded-full bg-gold" />
+            <span className="h-1 w-1 rounded-full bg-teal" />
           </span>
         ))}
       </div>
@@ -75,7 +75,7 @@ export function VisibilityGap() {
           title={
             <>
               Most companies do not have a product problem. They have a{" "}
-              <span className="italic text-gold">visibility</span> problem.
+              <span className="italic text-teal">visibility</span> problem.
             </>
           }
           lead="The distance between how good a business is and how well that quality is known, understood and remembered by the audiences that decide its future."
@@ -89,12 +89,12 @@ export function VisibilityGap() {
               data-reveal-delay={i * 60}
               className="reveal group relative bg-card px-7 py-8 transition-colors duration-500 hover:bg-surface"
             >
-              <span className="font-mono text-[0.65rem] tracking-[0.2em] text-gold">
+              <span className="font-mono text-[0.65rem] tracking-[0.2em] text-teal">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <p className="mt-4 text-lg text-foreground">{step.name}</p>
               <p className="mt-1 text-sm text-muted-foreground">{step.note}</p>
-              <span className="absolute bottom-0 left-0 h-px w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-teal transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
             </div>
           ))}
         </div>
@@ -163,11 +163,11 @@ export function Commitment() {
         height={1200}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(105deg,oklch(0.155_0.006_80/0.92)_0%,oklch(0.155_0.006_80/0.55)_55%,oklch(0.155_0.006_80/0.25)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(105deg,oklch(0.213_0.025_249/0.92)_0%,oklch(0.213_0.025_249/0.55)_55%,oklch(0.213_0.025_249/0.25)_100%)]" />
 
       <div className="relative shell py-32 lg:py-48">
         <div data-reveal className="reveal glass-dark max-w-2xl rounded-3xl p-10 lg:p-14">
-          <p className="eyebrow text-gold-bright">Why We Exist</p>
+          <p className="eyebrow text-lime">Why We Exist</p>
           <p className="mt-7 font-display text-[clamp(1.7rem,3.2vw,2.75rem)] leading-[1.15] text-primary-foreground">
             African founders build fundable companies every day. Capital and attention still
             flow to whoever is easiest to find.
@@ -199,10 +199,10 @@ export function Process() {
             data-reveal-delay={i * 70}
             className="reveal group grid grid-cols-1 gap-4 border-b hairline py-10 transition-all duration-700 hover:pl-4 md:grid-cols-[8rem_1fr_1.4fr] md:items-baseline md:gap-8 lg:py-12"
           >
-            <span className="font-mono text-[0.7rem] tracking-[0.24em] text-gold">
+            <span className="font-mono text-[0.7rem] tracking-[0.24em] text-teal">
               {stage.number}
             </span>
-            <h3 className="text-2xl text-foreground transition-colors duration-500 group-hover:text-gold lg:text-3xl">
+            <h3 className="text-2xl text-foreground transition-colors duration-500 group-hover:text-teal lg:text-3xl">
               {stage.name}
             </h3>
             <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground lg:text-base">
@@ -227,7 +227,7 @@ export function TrackRecord() {
         height={900}
         className="absolute inset-0 h-full w-full object-cover opacity-45"
       />
-      <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_20%_0%,transparent_0%,oklch(0.155_0.006_80/0.9)_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_20%_0%,transparent_0%,oklch(0.213_0.025_249/0.9)_70%)]" />
 
       <div className="relative shell">
         <SectionHead eyebrow="Track Record" title="Evidence, not adjectives" tone="dark" />
@@ -240,7 +240,7 @@ export function TrackRecord() {
               data-reveal-delay={i * 90}
               className="reveal glass-dark px-8 py-12 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2"
             >
-              <p className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-none text-gold-bright">
+              <p className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-none text-lime">
                 {s.value}
                 <span className="text-primary-foreground/50">{s.suffix}</span>
               </p>
@@ -279,11 +279,11 @@ export function Team() {
             <div className="flex items-start justify-between gap-6">
               <div>
                 <h3 className="text-2xl text-foreground lg:text-[1.65rem]">{m.name}</h3>
-                <p className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-gold">
+                <p className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-teal">
                   {m.role}
                 </p>
               </div>
-              <span className="mt-1 h-9 w-9 shrink-0 rounded-full border hairline transition-colors duration-700 group-hover:border-gold group-hover:bg-gold" />
+              <span className="mt-1 h-9 w-9 shrink-0 rounded-full border hairline transition-colors duration-700 group-hover:border-teal group-hover:bg-teal" />
             </div>
 
             <p className="mt-7 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
@@ -327,7 +327,7 @@ export function Energy() {
             className="h-full w-full object-cover"
           />
           <div className="glass absolute bottom-5 left-5 right-5 rounded-2xl px-6 py-5">
-            <p className="eyebrow text-gold">Clean Energy & E-Mobility</p>
+            <p className="eyebrow text-teal">Clean Energy & E-Mobility</p>
             <p className="mt-2 text-sm text-foreground">
               Feasibility to commissioning, documented as it happens.
             </p>
@@ -360,10 +360,10 @@ export function Insights() {
             data-reveal-delay={i * 80}
             className="reveal group grid gap-4 border-b hairline py-10 transition-all duration-700 hover:pl-4 md:grid-cols-[9rem_1.2fr_1.4fr] md:items-baseline md:gap-8"
           >
-            <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-gold">
+            <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-teal">
               {post.category}
             </span>
-            <h3 className="text-xl leading-snug text-foreground transition-colors duration-500 group-hover:text-gold lg:text-2xl">
+            <h3 className="text-xl leading-snug text-foreground transition-colors duration-500 group-hover:text-teal lg:text-2xl">
               {post.title}
             </h3>
             <div>
@@ -392,7 +392,7 @@ export function CTA() {
         className="absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-2xl"
       />
       <div className="relative shell py-32 text-center lg:py-48">
-        <p data-reveal className="reveal eyebrow text-gold-bright">
+        <p data-reveal className="reveal eyebrow text-lime">
           Start a Conversation
         </p>
         <h2
@@ -400,7 +400,7 @@ export function CTA() {
           data-reveal-delay="100"
           className="reveal mx-auto mt-8 max-w-4xl text-[clamp(2.25rem,6vw,5rem)] leading-[1.02] text-primary-foreground"
         >
-          Your work deserves to be <span className="italic text-gold-bright">seen</span>.
+          Your work deserves to be <span className="italic text-lime">seen</span>.
         </h2>
         <p
           data-reveal
@@ -429,7 +429,7 @@ export function Footer() {
     <footer className="border-t hairline bg-background py-14">
       <div className="shell flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
         <p className="font-display text-xl text-foreground">
-          Brollam<span className="text-gold">.</span> Partners
+          Brollam<span className="text-teal">.</span> Partners
         </p>
         <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-muted-foreground">
           Nairobi, Kenya
