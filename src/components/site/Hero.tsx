@@ -5,12 +5,12 @@ export function Hero() {
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-ink">
       <img
         src={heroImage}
-        alt="Nairobi skyline at golden hour"
+        alt="Nairobi skyline at dusk"
         width={1920}
         height={1088}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.155_0.006_80/0.72)_0%,oklch(0.155_0.006_80/0.35)_38%,oklch(0.155_0.006_80/0.86)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.213_0.025_249/0.72)_0%,oklch(0.213_0.025_249/0.35)_38%,oklch(0.213_0.025_249/0.86)_100%)]" />
       <div className="grain absolute inset-0" />
 
       <div className="relative z-10 flex min-h-[100svh] flex-col justify-end pb-16 pt-40 lg:pb-24">
@@ -29,7 +29,7 @@ export function Hero() {
           >
             Building brands.
             <br />
-            Creating <span className="italic text-gold-bright">visibility</span>.
+            Creating <span className="italic text-lime">visibility</span>.
             <br />
             Driving growth.
           </h1>
@@ -51,7 +51,7 @@ export function Hero() {
             >
               <a
                 href="#contact"
-                className="magnetic rounded-full bg-primary-foreground px-7 py-3.5 text-sm font-medium text-ink"
+                className="magnetic rounded-full bg-lime px-7 py-3.5 text-sm font-semibold text-ink"
               >
                 Start a Conversation
               </a>
@@ -79,7 +79,7 @@ export function Hero() {
                 key={title}
                 className="group px-6 py-7 transition-colors duration-500 hover:bg-[oklch(1_0_0/0.07)]"
               >
-                <p className="eyebrow text-gold-bright">{title}</p>
+                <p className="eyebrow text-lime">{title}</p>
                 <p className="mt-2 text-sm text-primary-foreground/70">{note}</p>
               </div>
             ))}
