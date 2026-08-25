@@ -112,9 +112,10 @@
   }
 
   ::selection {
-    background: var(--gold);
-    color: var(--primary-foreground);
+    background: var(--lime);
+    color: var(--ink);
   }
+
 
   h1,
   h2,
@@ -130,17 +131,50 @@
 @utility glass {
   background: var(--glass-light);
   backdrop-filter: blur(28px) saturate(150%);
-  -webkit-backdrop-filter: blur(28px) saturate(150%);
   border: 1px solid oklch(1 0 0 / 45%);
   box-shadow: var(--shadow-glass);
+  transition:
+    background-color 0.6s var(--ease-out-soft),
+    backdrop-filter 0.6s var(--ease-out-soft),
+    border-color 0.6s var(--ease-out-soft),
+    box-shadow 0.6s var(--ease-out-soft),
+    transform 0.6s var(--ease-out-soft);
 }
 
 @utility glass-dark {
   background: var(--glass-dark);
   backdrop-filter: blur(26px) saturate(140%);
-  -webkit-backdrop-filter: blur(26px) saturate(140%);
   border: 1px solid oklch(1 0 0 / 14%);
   box-shadow: 0 1px 0 oklch(1 0 0 / 12%) inset, 0 40px 90px -50px oklch(0 0 0 / 70%);
+  transition:
+    background-color 0.6s var(--ease-out-soft),
+    backdrop-filter 0.6s var(--ease-out-soft),
+    border-color 0.6s var(--ease-out-soft),
+    box-shadow 0.6s var(--ease-out-soft),
+    transform 0.6s var(--ease-out-soft);
+}
+
+/* deepen the frost + lift on hover, light surfaces */
+@utility glass-hover {
+  &:hover {
+    background: oklch(0.985 0.004 110 / 74%);
+    backdrop-filter: blur(40px) saturate(170%);
+    border-color: oklch(1 0 0 / 70%);
+    box-shadow: var(--shadow-glass), var(--glow-teal);
+    transform: translateY(-4px);
+  }
+}
+
+/* deepen the frost + lift on hover, dark surfaces */
+@utility glass-hover-dark {
+  &:hover {
+    background: oklch(0.3 0.03 240 / 62%);
+    backdrop-filter: blur(38px) saturate(160%);
+    border-color: oklch(1 0 0 / 30%);
+    box-shadow: 0 1px 0 oklch(1 0 0 / 20%) inset, 0 44px 100px -50px oklch(0 0 0 / 78%),
+      var(--glow-lime);
+    transform: translateY(-4px);
+  }
 }
 
 @utility hairline {
@@ -189,16 +223,110 @@
   }
 }
 
+/* soft frosted pill that fades in behind nav links */
+@utility nav-pill {
+  position: relative;
+  border-radius: 9999px;
+  transition: color 0.4s var(--ease-out-soft);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.45rem -0.85rem;
+    border-radius: 9999px;
+    background: oklch(1 0 0 / 12%);
+    backdrop-filter: blur(10px);
+    border: 1px solid oklch(1 0 0 / 16%);
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+      opacity 0.45s var(--ease-out-soft),
+      transform 0.45s var(--ease-out-soft);
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @utility magnetic {
   transition:
     transform 0.5s var(--ease-out-soft),
     box-shadow 0.5s var(--ease-out-soft),
     border-color 0.5s var(--ease-out-soft),
-    background-color 0.5s var(--ease-out-soft);
+    background-color 0.5s var(--ease-out-soft),
+    filter 0.5s var(--ease-out-soft);
 
   &:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lift);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.985);
+  }
+}
+
+@utility glow-lime {
+  &:hover {
+    box-shadow: var(--glow-lime), var(--shadow-lift);
+    filter: saturate(115%) brightness(1.04);
+  }
+}
+
+@utility glow-teal {
+  &:hover {
+    box-shadow: var(--glow-teal), var(--shadow-lift);
+  }
+}
+
+/* radial spotlight that blooms from the centre of a card on hover */
+@utility card-glow {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 0.7s var(--ease-out-soft),
+    box-shadow 0.7s var(--ease-out-soft),
+    border-color 0.7s var(--ease-out-soft);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+      120% 90% at 50% 0%,
+      oklch(0.532 0.086 190.7 / 16%) 0%,
+      transparent 70%
+    );
+    transition: opacity 0.7s var(--ease-out-soft);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-lift), var(--glow-teal);
+    border-color: oklch(0.532 0.086 190.7 / 45%);
+  }
+}
+
+@utility card-glow-dark {
+  &::before {
+    background: radial-gradient(
+      120% 90% at 50% 0%,
+      oklch(0.901 0.2 122.2 / 14%) 0%,
+      transparent 70%
+    );
+  }
+
+  &:hover {
+    box-shadow: 0 40px 90px -50px oklch(0 0 0 / 70%), var(--glow-lime);
+    border-color: oklch(0.901 0.2 122.2 / 40%);
   }
 }
 
@@ -206,6 +334,11 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  transition:
+    color 0.5s var(--ease-out-soft),
+    border-color 0.5s var(--ease-out-soft),
+    box-shadow 0.5s var(--ease-out-soft),
+    transform 0.5s var(--ease-out-soft);
 
   &::before {
     content: "";
@@ -220,6 +353,38 @@
   &:hover::before {
     transform: translateY(0);
   }
+
+  &:hover {
+    box-shadow: var(--glow-teal);
+    border-color: oklch(0.532 0.086 190.7 / 60%);
+  }
+
+  &:active {
+    transform: scale(0.985);
+  }
+}
+
+/* thin light streak that sweeps across a surface on hover */
+@utility shine {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    width: 45%;
+    pointer-events: none;
+    background: linear-gradient(100deg, transparent, oklch(1 0 0 / 38%), transparent);
+    transform: skewX(-14deg);
+    transition: left 0.85s var(--ease-out-soft);
+  }
+
+  &:hover::after {
+    left: 120%;
+  }
 }
 
 @utility zoomable {
@@ -229,8 +394,10 @@
 
   &:hover img {
     transform: scale(1.06);
+    filter: saturate(112%) contrast(1.03);
   }
 }
+
 
 /* ---------- reveal ---------- */
 
