@@ -51,7 +51,7 @@ export function Hero() {
             >
               <a
                 href="#contact"
-                className="magnetic rounded-full bg-primary-foreground px-7 py-3.5 text-sm font-medium text-ink"
+                className="magnetic rounded-full bg-lime px-7 py-3.5 text-sm font-semibold text-ink"
               >
                 Start a Conversation
               </a>

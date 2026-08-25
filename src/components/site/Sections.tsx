@@ -413,7 +413,7 @@ export function CTA() {
         <div data-reveal data-reveal-delay="300" className="reveal mt-12">
           <a
             href="mailto:hello@brollam.com"
-            className="magnetic inline-flex items-center gap-3 rounded-full bg-primary-foreground px-9 py-4 text-sm font-medium text-ink"
+            className="magnetic inline-flex items-center gap-3 rounded-full bg-lime px-9 py-4 text-sm font-semibold text-ink"
           >
             hello@brollam.com
             <span aria-hidden="true">&rarr;</span>
