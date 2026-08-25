@@ -5,7 +5,7 @@ export function Hero() {
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-ink">
       <img
         src={heroImage}
-        alt="Nairobi skyline at golden hour"
+        alt="Nairobi skyline at dusk"
         width={1920}
         height={1088}
         className="absolute inset-0 h-full w-full object-cover"

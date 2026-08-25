@@ -1,6 +1,6 @@
 import commitmentImage from "@/assets/commitment.jpg";
 import energyImage from "@/assets/energy.jpg";
-import textureGold from "@/assets/texture-teal.jpg";
+import textureTeal from "@/assets/texture-teal.jpg";
 import {
   ecosystemChannels,
   insights,
@@ -219,7 +219,7 @@ export function TrackRecord() {
   return (
     <section className="relative isolate overflow-hidden bg-ink py-28 lg:py-40">
       <img
-        src={textureGold}
+        src={textureTeal}
         alt=""
         aria-hidden="true"
         loading="lazy"
@@ -320,7 +320,7 @@ export function Energy() {
         <div className="zoomable relative order-2 overflow-hidden rounded-3xl lg:order-1">
           <img
             src={energyImage}
-            alt="Solar array and EV charging installation at golden hour"
+            alt="Solar array and EV charging installation at dusk"
             loading="lazy"
             width={1600}
             height={1008}
@@ -383,7 +383,7 @@ export function CTA() {
   return (
     <section id="contact" className="relative isolate overflow-hidden bg-ink">
       <img
-        src={textureGold}
+        src={textureTeal}
         alt=""
         aria-hidden="true"
         loading="lazy"
