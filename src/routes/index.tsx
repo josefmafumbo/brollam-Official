@@ -7,15 +7,15 @@ import {
   Commitment,
   Energy,
   Footer,
+  Gallery,
   Insights,
-  Marquee,
   Process,
-  Services,
+  ServicesRail,
   Team,
   TrackRecord,
   VisibilityGap,
 } from "@/components/site/Sections";
-import { useReveal } from "@/hooks/use-reveal";
+import { useSiteMotion } from "@/hooks/use-site-motion";
 
 const title = "Brollam Partners | Building Brands, Creating Visibility";
 const description =
@@ -28,24 +28,26 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
 });
 
 function Index() {
-  useReveal();
+  useSiteMotion();
 
   return (
     <main>
       <Nav />
       <Hero />
-      <Marquee />
       <VisibilityGap />
-      <Services />
+      <ServicesRail />
       <Commitment />
       <Process />
       <TrackRecord />
+      <Gallery />
       <Team />
       <Energy />
       <Insights />

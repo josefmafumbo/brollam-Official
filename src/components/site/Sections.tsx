@@ -106,13 +106,18 @@ export function VisibilityGap() {
 
 export function ServicesRail() {
   return (
-    <section id="services" data-rail className="relative overflow-hidden border-y hairline py-20 lg:h-[100svh] lg:py-0">
-      <div className="shell pb-12 pt-4 lg:pt-28">
+    <section
+      id="services"
+      data-rail
+      className="relative overflow-hidden border-y hairline py-20 lg:flex lg:h-[100svh] lg:flex-col lg:justify-center lg:py-0"
+    >
+      <div className="shell pb-10 pt-4 lg:pt-0">
         <Eyebrow>What We Do</Eyebrow>
         <h2 className="mt-6 display text-[clamp(2.2rem,5vw,4.5rem)]" data-words>
           Six disciplines, one accountable team
         </h2>
       </div>
+
 
       <div className="overflow-hidden">
         <div
