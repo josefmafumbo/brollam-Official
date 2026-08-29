@@ -5,6 +5,10 @@ import galMedia from "@/assets/gal-media.jpg";
 import galStudio from "@/assets/gal-studio.jpg";
 import galCity from "@/assets/gal-city.jpg";
 import galTech from "@/assets/gal-tech.jpg";
+import teamAdala from "@/assets/team-adala.jpg";
+import teamBrian from "@/assets/team-brian.jpg";
+import teamRoy from "@/assets/team-roy.jpg";
+import teamJosef from "@/assets/team-josef.jpg";
 import {
   insights,
   processStages,
@@ -30,11 +34,24 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 export function VisibilityGap() {
   return (
-    <section className="relative overflow-hidden py-28 lg:py-44">
-      <div className="shell grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
-        <div>
+    <section className="relative overflow-hidden">
+      {/* full-bleed statement */}
+      <div className="relative isolate flex min-h-[80svh] items-center overflow-hidden py-28 lg:py-40">
+        <img
+          data-parallax="6"
+          src={galCity}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          width={1600}
+          height={900}
+          className="absolute inset-0 -z-10 h-[125%] w-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(100%_80%_at_50%_50%,oklch(0.18_0.022_249/0.55)_0%,oklch(0.18_0.022_249/0.97)_75%)]" />
+
+        <div className="shell max-w-5xl text-center">
           <Eyebrow>The Visibility Gap</Eyebrow>
-          <h2 className="mt-8 display text-[clamp(2.4rem,6vw,5.5rem)]">
+          <h2 className="mx-auto mt-10 display text-[clamp(2.4rem,7vw,6.5rem)]">
             <span className="block" data-words>
               Most companies do not have
             </span>
@@ -45,62 +62,41 @@ export function VisibilityGap() {
               They have a visibility problem.
             </span>
           </h2>
-          <p data-fade className="mt-10 max-w-lg text-base leading-relaxed text-foreground/65 lg:text-lg">
+          <p
+            data-fade
+            className="mx-auto mt-12 max-w-2xl text-base leading-relaxed text-foreground/65 lg:text-lg"
+          >
             The distance between how good a business is and how well that quality is known,
             understood and remembered by the audiences that decide its future.
           </p>
-
-          <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-4">
-            {visibilityChain.map((step, i) => (
-              <div
-                key={step.name}
-                data-fade
-                className="group relative bg-surface px-5 py-7 transition-colors duration-500 hover:bg-card"
-              >
-                <span className="font-mono text-[0.6rem] tracking-[0.2em] text-lime">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-4 text-sm text-foreground">{step.name}</p>
-                <p className="mt-1 text-xs leading-relaxed text-foreground/50">{step.note}</p>
-                <span className="absolute bottom-0 left-0 h-px w-0 bg-lime transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-              </div>
-            ))}
-          </div>
         </div>
+      </div>
 
-        <div className="relative min-h-[30rem]">
-          <div
-            data-mask-reveal
-            className="zoomable absolute right-0 top-0 w-[72%] overflow-hidden rounded-[1.75rem]"
-          >
-            <img
-              src={galMedia}
-              alt="Press conference in Nairobi"
-              loading="lazy"
-              width={1200}
-              height={1500}
-              className="h-[26rem] w-full object-cover"
-            />
-          </div>
-          <div
-            data-mask-reveal
-            data-parallax="8"
-            className="zoomable absolute bottom-0 left-0 w-[58%] overflow-hidden rounded-[1.5rem] shadow-[var(--shadow-lift)]"
-          >
-            <img
-              src={galTech}
-              alt="Analytics dashboards at night"
-              loading="lazy"
-              width={1500}
-              height={1000}
-              className="h-[16rem] w-full object-cover"
-            />
-          </div>
+      {/* chain */}
+      <div className="shell pb-28 lg:pb-40">
+        <div className="grid gap-px overflow-hidden rounded-[1.5rem] bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {visibilityChain.map((step, i) => (
+            <div
+              key={step.name}
+              data-fade
+              className="group relative bg-surface px-7 py-9 transition-colors duration-500 hover:bg-card"
+            >
+              <span className="font-mono text-[0.6rem] tracking-[0.2em] text-lime">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-5 text-lg text-foreground transition-colors duration-500 group-hover:text-lime">
+                {step.name}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-foreground/50">{step.note}</p>
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-lime transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 
@@ -214,53 +210,64 @@ export function Commitment() {
 
 export function Process() {
   return (
-    <section id="process" className="on-mist relative py-28 lg:py-44">
-      <div className="shell grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-        <div className="lg:sticky lg:top-32 lg:self-start">
-          <Eyebrow>How We Work</Eyebrow>
-          <h2 className="mt-6 display text-[clamp(2.2rem,4.6vw,4rem)]" data-words>
-            Five stages, run in sequence
-          </h2>
-          <p data-fade className="mt-8 max-w-sm text-base leading-relaxed text-foreground/65">
+    <section id="process" className="relative isolate overflow-hidden py-28 lg:py-40">
+      <img
+        data-parallax="5"
+        src={galStudio}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        width={1500}
+        height={1000}
+        className="absolute inset-0 -z-10 h-[120%] w-full object-cover opacity-20"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.18_0.022_249/0.95)_0%,oklch(0.18_0.022_249/0.8)_50%,oklch(0.18_0.022_249/0.97)_100%)]" />
+
+      <div className="shell">
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <Eyebrow>How We Work</Eyebrow>
+            <h2 className="mt-6 display text-[clamp(2.4rem,6vw,5.5rem)]">
+              <span className="block" data-words>
+                Five stages,
+              </span>
+              <span className="block italic text-lime" data-words>
+                run in sequence
+              </span>
+            </h2>
+          </div>
+          <p data-fade className="max-w-sm text-base leading-relaxed text-foreground/65">
             Momentum compounds when each stage feeds the next. Nothing is handed off to a stranger.
           </p>
-          <div data-mask-reveal className="zoomable mt-12 hidden overflow-hidden rounded-[1.5rem] lg:block">
-            <img
-              src={galStudio}
-              alt="Production crew on location"
-              loading="lazy"
-              width={1500}
-              height={1000}
-              className="h-64 w-full object-cover"
-            />
-          </div>
         </div>
 
-        <ol className="border-t hairline">
+        <div className="mt-20 grid gap-px overflow-hidden rounded-[1.75rem] bg-border md:grid-cols-2 lg:grid-cols-5">
           {processStages.map((stage) => (
-            <li
+            <div
               key={stage.number}
               data-fade
-              className="group grid gap-3 border-b hairline py-10 transition-all duration-700 hover:pl-4 md:grid-cols-[5rem_1fr] md:gap-8 lg:py-12"
+              className="group relative flex min-h-[19rem] flex-col justify-between bg-surface p-8 transition-colors duration-500 hover:bg-card"
             >
-              <span className="font-mono text-[0.7rem] tracking-[0.24em] text-teal">
+              <span className="font-display text-[3.4rem] leading-none text-foreground/12 transition-colors duration-500 group-hover:text-lime/70">
                 {stage.number}
               </span>
               <div>
-                <h3 className="text-2xl transition-colors duration-500 group-hover:text-teal lg:text-[2rem]">
+                <h3 className="text-2xl transition-colors duration-500 group-hover:text-lime">
                   {stage.name}
                 </h3>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-foreground/65 lg:text-base">
+                <p className="mt-4 text-sm leading-relaxed text-foreground/60">
                   {stage.description}
                 </p>
               </div>
-            </li>
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-lime transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 
@@ -320,57 +327,80 @@ export function TrackRecord() {
 
 /* ------------------------------------------------------------------ */
 
+const teamPortraits: Record<string, string> = {
+  "Adala Allan": teamAdala,
+  "Brian M. Burudi": teamBrian,
+  "Roy Okola Otieno": teamRoy,
+  "Josef Mafumbo": teamJosef,
+};
+
 export function Team() {
   return (
     <section id="team" className="shell py-28 lg:py-44">
-      <Eyebrow>The Practice</Eyebrow>
-      <h2 className="mt-6 max-w-3xl display text-[clamp(2.2rem,5vw,4.5rem)]" data-words>
-        The people who do the work
-      </h2>
-      <p data-fade className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/65">
-        {teamClosingStatement}
-      </p>
+      <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div>
+          <Eyebrow>The Practice</Eyebrow>
+          <h2 className="mt-6 display text-[clamp(2.2rem,5vw,4.5rem)]" data-words>
+            The people who do the work
+          </h2>
+        </div>
+        <p data-fade className="text-base leading-relaxed text-foreground/65">
+          {teamClosingStatement}
+        </p>
+      </div>
 
-      <div className="mt-16 border-t hairline">
+      <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:gap-14">
         {team.map((m, i) => (
-          <article
-            key={m.name}
-            data-fade
-            className="group relative grid items-start gap-4 border-b hairline py-10 transition-all duration-700 hover:pl-4 lg:grid-cols-[4rem_1fr_1.3fr] lg:gap-10 lg:py-14"
-          >
-            <span className="font-mono text-[0.65rem] tracking-[0.24em] text-lime">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div>
-              <h3 className="text-[1.8rem] leading-tight transition-colors duration-500 group-hover:text-lime lg:text-[2.2rem]">
-                {m.name}
-              </h3>
-              <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-teal">
-                {m.role}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm leading-relaxed text-foreground/65 lg:text-base">{m.bio}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {m.expertise.map((e) => (
-                  <span
-                    key={e}
-                    className="rounded-full border border-foreground/15 px-3 py-1 text-[0.68rem] text-foreground/60 transition-colors duration-500 group-hover:border-lime/40"
-                  >
-                    {e}
-                  </span>
-                ))}
+          <article key={m.name} data-fade className="group">
+            <div
+              data-mask-reveal
+              className="zoomable relative overflow-hidden rounded-[1.75rem] border hairline"
+            >
+              <img
+                src={teamPortraits[m.name]}
+                alt={`${m.name}, ${m.role}`}
+                loading="lazy"
+                width={1024}
+                height={1280}
+                className="aspect-[4/5] w-full object-cover object-top"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,oklch(0.18_0.022_249/0.85)_100%)]" />
+              <span className="absolute left-6 top-6 font-mono text-[0.62rem] tracking-[0.24em] text-lime">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="absolute inset-x-6 bottom-6">
+                <h3 className="text-[1.7rem] leading-tight transition-colors duration-500 group-hover:text-lime lg:text-[2.1rem]">
+                  {m.name}
+                </h3>
+                <p className="mt-2 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-teal">
+                  {m.role}
+                </p>
               </div>
-              <p className="mt-5 font-mono text-[0.6rem] uppercase leading-relaxed tracking-[0.14em] text-foreground/40">
-                {m.marker}
-              </p>
             </div>
+
+            <p className="mt-7 max-w-xl text-sm leading-relaxed text-foreground/65 lg:text-base">
+              {m.bio}
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {m.expertise.map((e) => (
+                <span
+                  key={e}
+                  className="rounded-full border border-foreground/15 px-3 py-1 text-[0.68rem] text-foreground/60 transition-colors duration-500 group-hover:border-lime/40"
+                >
+                  {e}
+                </span>
+              ))}
+            </div>
+            <p className="mt-5 font-mono text-[0.6rem] uppercase leading-relaxed tracking-[0.14em] text-foreground/40">
+              {m.marker}
+            </p>
           </article>
         ))}
       </div>
     </section>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 
