@@ -30,11 +30,24 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 export function VisibilityGap() {
   return (
-    <section className="relative overflow-hidden py-28 lg:py-44">
-      <div className="shell grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
-        <div>
+    <section className="relative overflow-hidden">
+      {/* full-bleed statement */}
+      <div className="relative isolate flex min-h-[80svh] items-center overflow-hidden py-28 lg:py-40">
+        <img
+          data-parallax="6"
+          src={galCity}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          width={1600}
+          height={900}
+          className="absolute inset-0 -z-10 h-[125%] w-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(100%_80%_at_50%_50%,oklch(0.18_0.022_249/0.55)_0%,oklch(0.18_0.022_249/0.97)_75%)]" />
+
+        <div className="shell max-w-5xl text-center">
           <Eyebrow>The Visibility Gap</Eyebrow>
-          <h2 className="mt-8 display text-[clamp(2.4rem,6vw,5.5rem)]">
+          <h2 className="mx-auto mt-10 display text-[clamp(2.4rem,7vw,6.5rem)]">
             <span className="block" data-words>
               Most companies do not have
             </span>
@@ -45,62 +58,41 @@ export function VisibilityGap() {
               They have a visibility problem.
             </span>
           </h2>
-          <p data-fade className="mt-10 max-w-lg text-base leading-relaxed text-foreground/65 lg:text-lg">
+          <p
+            data-fade
+            className="mx-auto mt-12 max-w-2xl text-base leading-relaxed text-foreground/65 lg:text-lg"
+          >
             The distance between how good a business is and how well that quality is known,
             understood and remembered by the audiences that decide its future.
           </p>
-
-          <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-4">
-            {visibilityChain.map((step, i) => (
-              <div
-                key={step.name}
-                data-fade
-                className="group relative bg-surface px-5 py-7 transition-colors duration-500 hover:bg-card"
-              >
-                <span className="font-mono text-[0.6rem] tracking-[0.2em] text-lime">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-4 text-sm text-foreground">{step.name}</p>
-                <p className="mt-1 text-xs leading-relaxed text-foreground/50">{step.note}</p>
-                <span className="absolute bottom-0 left-0 h-px w-0 bg-lime transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-              </div>
-            ))}
-          </div>
         </div>
+      </div>
 
-        <div className="relative min-h-[30rem]">
-          <div
-            data-mask-reveal
-            className="zoomable absolute right-0 top-0 w-[72%] overflow-hidden rounded-[1.75rem]"
-          >
-            <img
-              src={galMedia}
-              alt="Press conference in Nairobi"
-              loading="lazy"
-              width={1200}
-              height={1500}
-              className="h-[26rem] w-full object-cover"
-            />
-          </div>
-          <div
-            data-mask-reveal
-            data-parallax="8"
-            className="zoomable absolute bottom-0 left-0 w-[58%] overflow-hidden rounded-[1.5rem] shadow-[var(--shadow-lift)]"
-          >
-            <img
-              src={galTech}
-              alt="Analytics dashboards at night"
-              loading="lazy"
-              width={1500}
-              height={1000}
-              className="h-[16rem] w-full object-cover"
-            />
-          </div>
+      {/* chain */}
+      <div className="shell pb-28 lg:pb-40">
+        <div className="grid gap-px overflow-hidden rounded-[1.5rem] bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {visibilityChain.map((step, i) => (
+            <div
+              key={step.name}
+              data-fade
+              className="group relative bg-surface px-7 py-9 transition-colors duration-500 hover:bg-card"
+            >
+              <span className="font-mono text-[0.6rem] tracking-[0.2em] text-lime">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-5 text-lg text-foreground transition-colors duration-500 group-hover:text-lime">
+                {step.name}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-foreground/50">{step.note}</p>
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-lime transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 
