@@ -1,4 +1,5 @@
-import heroBleed from "@/assets/hero-bleed.jpg";
+import { AnimatedHeading } from "@/components/animations/AnimatedHeading";
+import { FadeIn } from "@/components/animations/FadeIn";
 import { ecosystemChannels } from "@/lib/brollam";
 
 export function Hero() {
@@ -6,73 +7,90 @@ export function Hero() {
 
   return (
     <section id="top" className="relative isolate min-h-[100svh] overflow-hidden bg-background">
-      {/* full-bleed backdrop */}
-      <div data-hero-shift className="absolute inset-0 -z-10">
-        <img
-          src={heroBleed}
-          alt=""
-          aria-hidden="true"
-          width={1920}
-          height={1088}
-          className="h-full w-full scale-105 object-cover opacity-60"
+      {/* Full-screen video background - RAW with no overlay */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        poster="/assets/hero-bleed.jpg"
+      >
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4"
+          type="video/mp4"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.18_0.022_249/0.75)_0%,oklch(0.18_0.022_249/0.55)_35%,oklch(0.18_0.022_249/0.95)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_10%_30%,transparent_0%,oklch(0.18_0.022_249/0.7)_100%)]" />
-      </div>
+      </video>
+
+      {/* Dark overlay for text readability - subtle for Brollam */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/50 to-background/70" />
+
+      {/* Grain texture */}
       <div className="grain pointer-events-none absolute inset-0 -z-10" />
-      <div className="pointer-events-none absolute -left-40 top-1/3 -z-10 h-[34rem] w-[34rem] rounded-full bg-teal/20 blur-[150px]" />
-      <div className="pointer-events-none absolute -right-32 bottom-24 -z-10 h-[26rem] w-[26rem] rounded-full bg-lime/12 blur-[130px]" />
 
-      <div className="shell relative flex min-h-[100svh] flex-col justify-end pb-16 pt-36 lg:pb-28">
-        <div data-hero-fade className="flex items-center gap-4">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-lime [animation:pulse-ring_2.4s_ease-out_infinite]" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
-          </span>
-          <p className="eyebrow text-foreground/60">Nairobi — Building for African markets</p>
+      {/* Content container */}
+      <div className="shell relative flex min-h-[100svh] flex-col justify-end pb-12 pt-28 lg:grid lg:grid-cols-2 lg:items-end lg:pb-16">
+        {/* Left Column - Main Content */}
+        <div className="pr-0 lg:pr-8">
+          {/* Hero Indicator */}
+          <FadeIn delay={0} duration={1000} className="mb-8">
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-lime [animation:pulse-ring_2.4s_ease-out_infinite]" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
+              </span>
+              <p className="eyebrow text-foreground/70">Nairobi — Building for African markets</p>
+            </div>
+          </FadeIn>
+
+          {/* Main Heading with Character Animation */}
+          <AnimatedHeading
+            text="Building brands.\nCreating visibility.\nDriving growth."
+            className="mt-6 display text-[clamp(2.5rem,8vw,5rem)] leading-tight"
+            delay={200}
+            charDelay={30}
+          />
+
+          {/* Subheading with Fade In */}
+          <FadeIn delay={800} duration={1000} className="mt-8">
+            <p className="max-w-lg text-base leading-relaxed text-foreground/75 lg:text-lg">
+              An integrated strategy, communications, marketing, sales, technology and clean energy
+              consultancy. One accountable team, not a referral network.
+            </p>
+          </FadeIn>
+
+          {/* CTA Buttons */}
+          <FadeIn delay={1200} duration={1000} className="mt-10">
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-sm font-medium text-ink transition-all duration-300 hover:bg-gray-100 active:scale-95"
+              >
+                Start a Chat
+              </a>
+              <a
+                href="#services"
+                className="liquid-glass inline-flex items-center gap-2 rounded-lg border border-white/20 px-8 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-ink"
+              >
+                Explore Now
+              </a>
+            </div>
+          </FadeIn>
         </div>
 
-        <h1 className="mt-8 display text-[clamp(3rem,11vw,10.5rem)]">
-          <span className="block" data-words="hero">
-            Building brands.
-          </span>
-          <span className="block italic text-lime" data-words="hero">
-            Creating visibility.
-          </span>
-          <span className="block" data-words="hero">
-            Driving growth.
-          </span>
-        </h1>
-
-        <div className="mt-14 grid gap-10 border-t hairline pt-10 lg:grid-cols-[1fr_auto] lg:items-end">
-          <p
-            data-hero-fade
-            className="max-w-xl text-base leading-relaxed text-foreground/70 lg:text-lg"
-          >
-            An integrated strategy, communications, marketing, sales, technology and clean energy
-            consultancy. One accountable team, not a referral network.
-          </p>
-
-          <div data-hero-fade className="flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
-              data-magnet
-              className="magnetic shine inline-flex items-center gap-3 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink"
-            >
-              Start a Conversation
-              <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href="#services"
-              className="sweep rounded-full border border-foreground/25 px-8 py-4 text-sm font-medium text-foreground"
-            >
-              See What We Do
-            </a>
-          </div>
+        {/* Right Column - Floating Tag */}
+        <div className="mt-12 flex items-end justify-start lg:mt-0 lg:justify-end">
+          <FadeIn delay={1400} duration={1000}>
+            <div className="liquid-glass rounded-2xl border border-white/20 px-6 py-4">
+              <p className="text-lg font-light text-white md:text-xl">
+                Investing. Building. Advisory.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </div>
 
-      {/* ticker */}
+      {/* Ticker - unchanged */}
       <div className="relative border-y hairline bg-background/60 py-4 backdrop-blur-xl">
         <div data-ticker className="marquee-track items-center">
           {ticker.map((c, i) => (
