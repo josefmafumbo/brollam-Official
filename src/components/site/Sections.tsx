@@ -329,8 +329,8 @@ export function TrackRecord() {
 
 const teamPortraits: Record<string, string> = {
   "Adala Allan": teamAdala,
-  "Brian M. Burudi": teamBrian,
-  "Roy Okola Otieno": teamRoy,
+  "Brian Burudi": teamBrian,
+  "Roy Otieno": teamRoy,
   "Josef Mafumbo": teamJosef,
 };
 

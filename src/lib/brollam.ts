@@ -116,14 +116,14 @@ export const team = [
     marker: "Work placed with BBC, CNN, National Geographic, Bloomberg, The Economist",
   },
   {
-    name: "Brian M. Burudi",
+    name: "Brian Burudi",
     role: "B2B Sales & Market Expansion",
     bio: "Enterprise sales, market expansion, strategic partnerships, key accounts and agent networks: converting visibility into signed deals.",
     expertise: ["Enterprise Sales", "Market Expansion", "Partnerships", "Key Accounts"],
     marker: "Grew an SME agent network from 18 to 100",
   },
   {
-    name: "Roy Okola Otieno",
+    name: "Roy Otieno",
     role: "Clean Energy & E-Mobility Systems",
     bio: "Solar PV, battery storage, EV-charging infrastructure, feasibility studies and data & GIS tooling: the technical authority behind the clean-energy story.",
     expertise: ["Solar PV", "Battery Storage", "EV Charging", "Data & GIS"],
