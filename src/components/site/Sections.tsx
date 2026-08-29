@@ -472,10 +472,16 @@ export function Energy() {
 /* ------------------------------------------------------------------ */
 
 export function Insights() {
-  const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
-    Business: { bg: "bg-lime/10", text: "text-lime", border: "border-lime/30" },
-    Marketing: { bg: "bg-teal/10", text: "text-teal", border: "border-teal/30" },
-    "Clean Energy": { bg: "bg-leaf/10", text: "text-leaf", border: "border-leaf/30" },
+  const imageMap: Record<string, string> = {
+    "gal-media.jpg": galMedia,
+    "gal-city.jpg": galCity,
+    "energy.jpg": energyImage,
+  };
+
+  const categoryConfig: Record<string, { bg: string; accent: string; border: string }> = {
+    Business: { bg: "from-slate-deep to-slate-deep", accent: "lime", border: "border-lime/50" },
+    Marketing: { bg: "from-slate-deep to-slate-deep", accent: "teal", border: "border-teal/50" },
+    "Clean Energy": { bg: "from-slate-deep to-slate-deep", accent: "leaf", border: "border-leaf/50" },
   };
 
   return (
@@ -488,51 +494,78 @@ export function Insights() {
           </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {insights.map((post) => {
-            const colors = categoryColors[post.category] || categoryColors.Business;
+            const config = categoryConfig[post.category] || categoryConfig.Business;
+            const accentClass =
+              config.accent === "lime"
+                ? "from-lime to-lime"
+                : config.accent === "teal"
+                  ? "from-teal to-teal"
+                  : "from-leaf to-leaf";
+            const imageUrl = imageMap[post.image as keyof typeof imageMap];
+
             return (
               <a
                 key={post.title}
                 href="#insights"
                 data-fade
-                className="group glass glass-hover relative flex flex-col overflow-hidden rounded-2xl p-6 lg:p-8"
+                className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
               >
-                {/* Category Badge */}
-                <div className={`mb-4 inline-flex w-fit rounded-full border px-3 py-1 ${colors.bg} ${colors.border}`}>
-                  <span className={`text-[0.65rem] font-semibold uppercase tracking-[0.12em] ${colors.text}`}>
-                    {post.category}
-                  </span>
-                </div>
+                {/* Featured Image */}
+                <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-slate-deep to-slate-deep">
+                  <img
+                    src={imageUrl}
+                    alt={post.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Overlay gradient for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                {/* Content */}
-                <div className="flex flex-1 flex-col">
-                  <h3 className="mb-3 text-lg font-medium leading-snug transition-colors duration-500 group-hover:text-lime lg:text-xl">
-                    {post.title}
-                  </h3>
-
-                  <p className="mb-4 flex-1 text-sm leading-relaxed text-foreground/70">
-                    {post.excerpt}
-                  </p>
-
-                  {/* Date and Arrow */}
-                  <div className="flex items-center justify-between pt-4">
-                    <p className="text-[0.625rem] uppercase tracking-[0.12em] text-foreground/50">
-                      {post.date}
-                    </p>
-                    <svg
-                      className="h-4 w-4 transition-all duration-500 group-hover:translate-x-1 group-hover:text-lime"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                  {/* Category Badge - absolutely positioned over image */}
+                  <div
+                    className={`absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${accentClass} px-3 py-1.5 shadow-lg`}
+                  >
+                    <span className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-ink">
+                      {post.category}
+                    </span>
                   </div>
                 </div>
 
-                {/* Accent Line */}
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-lime to-teal transition-all duration-500 group-hover:w-full" />
+                {/* Content Area */}
+                <div className="flex flex-col p-6 lg:p-7">
+                  <h3 className="mb-3 text-lg font-semibold leading-snug text-ink transition-colors duration-500 group-hover:text-slate-deep lg:text-xl">
+                    {post.title}
+                  </h3>
+
+                  <p className="mb-5 flex-1 text-sm leading-relaxed text-ink/70">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Footer with date and arrow */}
+                  <div className="flex items-center justify-between border-t border-ink/10 pt-4">
+                    <p className="text-[0.625rem] font-medium uppercase tracking-[0.12em] text-ink/50">
+                      {post.date}
+                    </p>
+                    <div
+                      className={`flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r ${accentClass} transition-all duration-500 group-hover:translate-x-1`}
+                    >
+                      <svg
+                        className="h-4 w-4 text-ink"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Top accent line */}
+                <div
+                  className={`absolute left-0 top-0 h-1 w-0 bg-gradient-to-r ${accentClass} transition-all duration-500 group-hover:w-full`}
+                />
               </a>
             );
           })}

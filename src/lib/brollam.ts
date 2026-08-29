@@ -159,6 +159,7 @@ export const insights = [
     excerpt:
       "Most growing companies do not have a product problem. They have a visibility problem. Here is what that actually means, and what to do about it.",
     date: "06 Jul 2026",
+    image: "gal-media.jpg",
   },
   {
     category: "Marketing",
@@ -166,6 +167,7 @@ export const insights = [
     excerpt:
       "Campaigns that evaporate cost you twice. Treating marketing as infrastructure makes every launch land higher than the last.",
     date: "21 Jul 2026",
+    image: "gal-city.jpg",
   },
   {
     category: "Clean Energy",
@@ -173,5 +175,6 @@ export const insights = [
     excerpt:
       "Clean energy and e-mobility projects succeed on engineering, and stall on trust. Evidence led storytelling is now part of the technical work.",
     date: "28 Jul 2026",
+    image: "energy.jpg",
   },
 ] as const;
