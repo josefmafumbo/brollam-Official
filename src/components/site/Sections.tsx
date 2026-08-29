@@ -391,7 +391,7 @@ export function Team() {
               ))}
             </div>
 
-            <p className="mt-4 font-mono text-[0.58rem] uppercase leading-relaxed tracking-[0.14em] text-foreground/40">
+            <p className="mt-4 text-[0.58rem] uppercase leading-relaxed tracking-[0.14em] text-foreground/40" style={{ fontFamily: '"Poppins", ui-sans-serif, system-ui, sans-serif' }}>
               {m.marker}
             </p>
           </article>
