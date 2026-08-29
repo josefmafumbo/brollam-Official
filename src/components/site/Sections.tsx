@@ -472,36 +472,70 @@ export function Energy() {
 /* ------------------------------------------------------------------ */
 
 export function Insights() {
+  const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
+    Business: { bg: "bg-lime/10", text: "text-lime", border: "border-lime/30" },
+    Marketing: { bg: "bg-teal/10", text: "text-teal", border: "border-teal/30" },
+    "Clean Energy": { bg: "bg-leaf/10", text: "text-leaf", border: "border-leaf/30" },
+  };
+
   return (
     <section id="insights" className="on-mist py-28 lg:py-44">
       <div className="shell">
-        <Eyebrow>Insights</Eyebrow>
-        <h2 className="mt-6 display text-[clamp(2.2rem,5vw,4.5rem)]" data-words>
-          Thinking we publish
-        </h2>
+        <div className="mb-16">
+          <Eyebrow>Insights</Eyebrow>
+          <h2 className="mt-6 display text-[clamp(2.2rem,5vw,4.5rem)]" data-words>
+            Thinking we publish
+          </h2>
+        </div>
 
-        <div className="mt-14 border-t hairline">
-          {insights.map((post) => (
-            <a
-              key={post.title}
-              href="#insights"
-              data-fade
-              className="group grid gap-4 border-b hairline py-10 transition-all duration-700 hover:pl-4 md:grid-cols-[9rem_1.2fr_1.4fr] md:items-baseline md:gap-8"
-            >
-              <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-teal">
-                {post.category}
-              </span>
-              <h3 className="text-xl leading-snug transition-colors duration-500 group-hover:text-teal lg:text-2xl">
-                {post.title}
-              </h3>
-              <div>
-                <p className="text-sm leading-relaxed text-foreground/65">{post.excerpt}</p>
-                <p className="mt-3 font-mono text-[0.62rem] tracking-[0.16em] text-foreground/45">
-                  {post.date}
-                </p>
-              </div>
-            </a>
-          ))}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {insights.map((post) => {
+            const colors = categoryColors[post.category] || categoryColors.Business;
+            return (
+              <a
+                key={post.title}
+                href="#insights"
+                data-fade
+                className="group glass glass-hover relative flex flex-col overflow-hidden rounded-2xl p-6 lg:p-8"
+              >
+                {/* Category Badge */}
+                <div className={`mb-4 inline-flex w-fit rounded-full border px-3 py-1 ${colors.bg} ${colors.border}`}>
+                  <span className={`text-[0.65rem] font-semibold uppercase tracking-[0.12em] ${colors.text}`}>
+                    {post.category}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col">
+                  <h3 className="mb-3 text-lg font-medium leading-snug transition-colors duration-500 group-hover:text-lime lg:text-xl">
+                    {post.title}
+                  </h3>
+
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-foreground/70">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Date and Arrow */}
+                  <div className="flex items-center justify-between pt-4">
+                    <p className="text-[0.625rem] uppercase tracking-[0.12em] text-foreground/50">
+                      {post.date}
+                    </p>
+                    <svg
+                      className="h-4 w-4 transition-all duration-500 group-hover:translate-x-1 group-hover:text-lime"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Accent Line */}
+                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-lime to-teal transition-all duration-500 group-hover:w-full" />
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
