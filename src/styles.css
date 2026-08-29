@@ -273,6 +273,7 @@
     background: var(--lime);
     transform: translateY(101%);
     transition: transform 0.55s var(--ease-out-soft);
+    border-radius: inherit;
   }
 
   &:hover::before {
