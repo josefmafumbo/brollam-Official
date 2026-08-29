@@ -43,13 +43,27 @@ export function Hero() {
             </div>
           </FadeIn>
 
-          {/* Main Heading with Character Animation */}
-          <AnimatedHeading
-            text="Building brands.\nCreating visibility.\nDriving growth."
-            className="mt-6 display text-[clamp(2.5rem,8vw,5rem)] leading-tight"
-            delay={200}
-            charDelay={30}
-          />
+          {/* Main Heading with Character Animation and Green "Creating visibility." */}
+          <div className="mt-6 display text-[clamp(2.5rem,8vw,5rem)] leading-tight">
+            <AnimatedHeading
+              text="Building brands."
+              className="inline"
+              delay={200}
+              charDelay={30}
+            />
+            <AnimatedHeading
+              text="Creating visibility."
+              className="inline text-lime"
+              delay={200 + 16 * 30}
+              charDelay={30}
+            />
+            <AnimatedHeading
+              text="Driving growth."
+              className="inline"
+              delay={200 + (16 + 20) * 30}
+              charDelay={30}
+            />
+          </div>
 
           {/* Subheading with Fade In */}
           <FadeIn delay={800} duration={1000} className="mt-8">
@@ -64,28 +78,25 @@ export function Hero() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-sm font-medium text-ink transition-all duration-300 hover:bg-gray-100 active:scale-95"
+                data-magnet
+                className="magnetic shine inline-flex items-center gap-3 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink"
               >
-                Start a Chat
-              </a>
-              <a
-                href="#services"
-                className="liquid-glass inline-flex items-center gap-2 rounded-lg border border-white/20 px-8 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-ink"
-              >
-                Explore Now
+                Start a Conversation
+                <span aria-hidden="true">→</span>
               </a>
             </div>
           </FadeIn>
         </div>
 
-        {/* Right Column - Floating Tag */}
+        {/* Right Column - See What We Do Button */}
         <div className="mt-12 flex items-end justify-start lg:mt-0 lg:justify-end">
           <FadeIn delay={1400} duration={1000}>
-            <div className="liquid-glass rounded-2xl border border-white/20 px-6 py-4">
-              <p className="text-lg font-light text-white md:text-xl">
-                Investing. Building. Advisory.
-              </p>
-            </div>
+            <a
+              href="#services"
+              className="sweep rounded-full border border-foreground/25 px-8 py-4 text-sm font-medium text-foreground"
+            >
+              See What We Do
+            </a>
           </FadeIn>
         </div>
       </div>
