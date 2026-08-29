@@ -24,7 +24,7 @@ const serviceImages = [galStudio, galMedia, galCity, galTech, commitmentImage, e
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p data-fade className="eyebrow text-lime">
+    <p data-fade className="eyebrow text-ink">
       {children}
     </p>
   );
@@ -480,8 +480,8 @@ export function Insights() {
 
   const categoryConfig: Record<string, { bg: string; accent: string; border: string }> = {
     Business: { bg: "from-slate-deep to-slate-deep", accent: "lime", border: "border-lime/50" },
-    Marketing: { bg: "from-slate-deep to-slate-deep", accent: "teal", border: "border-teal/50" },
-    "Clean Energy": { bg: "from-slate-deep to-slate-deep", accent: "leaf", border: "border-leaf/50" },
+    Marketing: { bg: "from-slate-deep to-slate-deep", accent: "lime", border: "border-lime/50" },
+    "Clean Energy": { bg: "from-slate-deep to-slate-deep", accent: "lime", border: "border-lime/50" },
   };
 
   return (
