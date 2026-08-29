@@ -214,53 +214,64 @@ export function Commitment() {
 
 export function Process() {
   return (
-    <section id="process" className="on-mist relative py-28 lg:py-44">
-      <div className="shell grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-        <div className="lg:sticky lg:top-32 lg:self-start">
-          <Eyebrow>How We Work</Eyebrow>
-          <h2 className="mt-6 display text-[clamp(2.2rem,4.6vw,4rem)]" data-words>
-            Five stages, run in sequence
-          </h2>
-          <p data-fade className="mt-8 max-w-sm text-base leading-relaxed text-foreground/65">
+    <section id="process" className="relative isolate overflow-hidden py-28 lg:py-40">
+      <img
+        data-parallax="5"
+        src={galStudio}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        width={1500}
+        height={1000}
+        className="absolute inset-0 -z-10 h-[120%] w-full object-cover opacity-20"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.18_0.022_249/0.95)_0%,oklch(0.18_0.022_249/0.8)_50%,oklch(0.18_0.022_249/0.97)_100%)]" />
+
+      <div className="shell">
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <Eyebrow>How We Work</Eyebrow>
+            <h2 className="mt-6 display text-[clamp(2.4rem,6vw,5.5rem)]">
+              <span className="block" data-words>
+                Five stages,
+              </span>
+              <span className="block italic text-lime" data-words>
+                run in sequence
+              </span>
+            </h2>
+          </div>
+          <p data-fade className="max-w-sm text-base leading-relaxed text-foreground/65">
             Momentum compounds when each stage feeds the next. Nothing is handed off to a stranger.
           </p>
-          <div data-mask-reveal className="zoomable mt-12 hidden overflow-hidden rounded-[1.5rem] lg:block">
-            <img
-              src={galStudio}
-              alt="Production crew on location"
-              loading="lazy"
-              width={1500}
-              height={1000}
-              className="h-64 w-full object-cover"
-            />
-          </div>
         </div>
 
-        <ol className="border-t hairline">
+        <div className="mt-20 grid gap-px overflow-hidden rounded-[1.75rem] bg-border md:grid-cols-2 lg:grid-cols-5">
           {processStages.map((stage) => (
-            <li
+            <div
               key={stage.number}
               data-fade
-              className="group grid gap-3 border-b hairline py-10 transition-all duration-700 hover:pl-4 md:grid-cols-[5rem_1fr] md:gap-8 lg:py-12"
+              className="group relative flex min-h-[19rem] flex-col justify-between bg-surface p-8 transition-colors duration-500 hover:bg-card"
             >
-              <span className="font-mono text-[0.7rem] tracking-[0.24em] text-teal">
+              <span className="font-display text-[3.4rem] leading-none text-foreground/12 transition-colors duration-500 group-hover:text-lime/70">
                 {stage.number}
               </span>
               <div>
-                <h3 className="text-2xl transition-colors duration-500 group-hover:text-teal lg:text-[2rem]">
+                <h3 className="text-2xl transition-colors duration-500 group-hover:text-lime">
                   {stage.name}
                 </h3>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-foreground/65 lg:text-base">
+                <p className="mt-4 text-sm leading-relaxed text-foreground/60">
                   {stage.description}
                 </p>
               </div>
-            </li>
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-lime transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 
