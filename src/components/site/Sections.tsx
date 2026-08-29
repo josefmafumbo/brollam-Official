@@ -5,6 +5,10 @@ import galMedia from "@/assets/gal-media.jpg";
 import galStudio from "@/assets/gal-studio.jpg";
 import galCity from "@/assets/gal-city.jpg";
 import galTech from "@/assets/gal-tech.jpg";
+import teamAdala from "@/assets/team-adala.jpg";
+import teamBrian from "@/assets/team-brian.jpg";
+import teamRoy from "@/assets/team-roy.jpg";
+import teamJosef from "@/assets/team-josef.jpg";
 import {
   insights,
   processStages,
