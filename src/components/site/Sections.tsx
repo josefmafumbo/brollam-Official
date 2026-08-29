@@ -337,24 +337,24 @@ const teamPortraits: Record<string, string> = {
 export function Team() {
   return (
     <section id="team" className="shell py-28 lg:py-44">
-      <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <header className="mb-16 flex flex-col justify-between gap-6 border-b hairline pb-8 md:mb-20 md:flex-row md:items-end">
         <div>
           <Eyebrow>The Practice</Eyebrow>
-          <h2 className="mt-6 display text-[clamp(2.2rem,5vw,4.5rem)]" data-words>
+          <h2 className="mt-4 display text-[clamp(2.4rem,5vw,4.5rem)] italic" data-words>
             The people who do the work
           </h2>
         </div>
-        <p data-fade className="text-base leading-relaxed text-foreground/65">
+        <p data-fade className="max-w-xs text-right text-sm leading-relaxed text-foreground/50 md:text-base">
           {teamClosingStatement}
         </p>
-      </div>
+      </header>
 
-      <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:gap-14">
+      <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-16">
         {team.map((m, i) => (
-          <article key={m.name} data-fade className="group">
+          <article key={m.name} data-fade className="group cursor-pointer">
             <div
               data-mask-reveal
-              className="zoomable relative overflow-hidden rounded-[1.75rem] border hairline"
+              className="zoomable relative mb-6 overflow-hidden rounded-[1.25rem] bg-teal/10"
             >
               <img
                 src={teamPortraits[m.name]}
@@ -362,36 +362,36 @@ export function Team() {
                 loading="lazy"
                 width={1024}
                 height={1280}
-                className="aspect-[4/5] w-full object-cover object-top"
+                className="aspect-[3/4] w-full object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
               />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,oklch(0.18_0.022_249/0.85)_100%)]" />
-              <span className="absolute left-6 top-6 font-mono text-[0.62rem] tracking-[0.24em] text-lime">
+              <span className="absolute left-4 top-4 rounded-full border border-lime/30 px-2 py-0.5 font-mono text-[0.6rem] tracking-[0.18em] text-lime backdrop-blur-sm">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="absolute inset-x-6 bottom-6">
-                <h3 className="text-[1.7rem] leading-tight transition-colors duration-500 group-hover:text-lime lg:text-[2.1rem]">
-                  {m.name}
-                </h3>
-                <p className="mt-2 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-teal">
-                  {m.role}
-                </p>
-              </div>
             </div>
 
-            <p className="mt-7 max-w-xl text-sm leading-relaxed text-foreground/65 lg:text-base">
+            <div className="space-y-1">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-teal">{m.role}</p>
+              <h3 className="font-display text-2xl leading-tight transition-colors duration-500 group-hover:text-lime">
+                {m.name}
+              </h3>
+            </div>
+
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-foreground/55">
               {m.bio}
             </p>
-            <div className="mt-5 flex flex-wrap gap-2">
+
+            <div className="mt-4 flex flex-wrap gap-2">
               {m.expertise.map((e) => (
                 <span
                   key={e}
-                  className="rounded-full border border-foreground/15 px-3 py-1 text-[0.68rem] text-foreground/60 transition-colors duration-500 group-hover:border-lime/40"
+                  className="rounded-full border border-foreground/10 px-2.5 py-1 text-[0.62rem] text-foreground/55 transition-colors duration-500 group-hover:border-lime/30 group-hover:text-foreground/80"
                 >
                   {e}
                 </span>
               ))}
             </div>
-            <p className="mt-5 font-mono text-[0.6rem] uppercase leading-relaxed tracking-[0.14em] text-foreground/40">
+
+            <p className="mt-4 font-mono text-[0.58rem] uppercase leading-relaxed tracking-[0.14em] text-foreground/40">
               {m.marker}
             </p>
           </article>
