@@ -109,13 +109,6 @@ export const ecosystemChannels = [
 
 export const team = [
   {
-    name: "Josef Mafumbo",
-    role: "Design & Creative Systems",
-    bio: "Brand identity, motion design and brand films, UI/UX, 3D renders and editorial design: the visual language investors and customers see first.",
-    expertise: ["Brand Identity", "Motion Design", "UI/UX", "3D & Renders"],
-    marker: "9+ years, 120+ projects shipped",
-  },
-  {
     name: "Adala Allan",
     role: "Communications, PR & Brand Strategy",
     bio: "Media strategy, storytelling, integrated campaigns, digital growth and founder profiling: turning credibility into coverage.",
@@ -136,7 +129,15 @@ export const team = [
     expertise: ["Solar PV", "Battery Storage", "EV Charging", "Data & GIS"],
     marker: "25+ active sites monitored, KES 50M+ pipeline supported",
   },
+  {
+    name: "Josef Mafumbo",
+    role: "Design & Creative Systems",
+    bio: "Brand identity, motion design and brand films, UI/UX, 3D renders and editorial design: the visual language investors and customers see first.",
+    expertise: ["Brand Identity", "Motion Design", "UI/UX", "3D & Renders"],
+    marker: "9+ years, 120+ projects shipped",
+  },
 ] as const;
+
 
 export const trackRecord = [
   { value: "5", suffix: "", label: "Global media outlets secured" },
