@@ -24,7 +24,7 @@ const serviceImages = [galStudio, galMedia, galCity, galTech, commitmentImage, e
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p data-fade className="eyebrow text-ink">
+    <p data-fade className="eyebrow text-foreground">
       {children}
     </p>
   );
